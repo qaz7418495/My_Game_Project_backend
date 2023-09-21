@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-72l%hk7sc0t^yi@7#(i45t#xheg_ct3u&zyzq=c299dmy&)*68
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -47,6 +47,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+'''# 跨域增加忽略
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True'''
 
 ROOT_URLCONF = 'My_Game_Project.urls'
 

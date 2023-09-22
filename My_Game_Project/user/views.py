@@ -2,6 +2,7 @@ import json
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from user.models import User
 from utils.Login_utils import sign_token
@@ -125,3 +126,7 @@ def login(request):
 
         result = {'result': 1, 'message': '登陆成功', 'token': token}
         return JsonResponse(result)
+
+
+def logout(request):
+    return JsonResponse({})

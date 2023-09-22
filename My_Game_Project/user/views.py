@@ -9,7 +9,7 @@ from utils.Login_utils import sign_token
 
 
 # Create your views here.
-
+'1'
 def test(request):
     return HttpResponse("测试user")
 

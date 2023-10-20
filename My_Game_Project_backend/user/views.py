@@ -1,5 +1,6 @@
 import json
 
+from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -121,11 +122,31 @@ def login(request):
 
         payload = {'user_id': user.id}
 
-        token = sign_token(payload, exp=3600*24*2)
+        token = sign_token(payload, exp=3600 * 24 * 2)
 
         result = {'result': 1, 'message': '登陆成功', 'token': token}
         return JsonResponse(result)
 
 
-def logout(request):
-    return JsonResponse({})
+def get_user_info(request):
+    if request.method == 'POST':
+        # 获取用户ID
+        user_id = request.user_id
+        # 获取用户信息
+        user_info = User.objects.filter(id=user_id)
+        result = {'result': '1', 'message': user_info}
+        return JsonResponse(result)
+
+
+def get_other_user_info(request):
+    if request.method == 'POST':
+        data_json = json.loads(request.body.decode())
+        username = data_json.get('username', '')
+        other_user_info = User.objects.get(username=username)
+        info_dict = {
+            'username': other_user_info.username,
+            'email': other_user_info.email
+        }
+        result = {'result': '1', 'message': info_dict}
+        return JsonResponse(result)
+    

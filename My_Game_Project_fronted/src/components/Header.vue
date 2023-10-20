@@ -3,11 +3,8 @@
     <a href="http://www.baidu.com" target="_blank"><img class="Icon" src="../assets/img/icon.jpg" alt="找不到图片"></a>
     <router-link :to="{ name: 'Main'}" class="Title" title="欢迎来到lb的Game Project！">b1mple's Game Project</router-link>
     <avator class="Avator"/>
-    <router-link :to="{ name: 'Login'}" class="Avator" style="margin-left: 30px;">
+    <router-link :to="{ name: 'Welcome'}" class="button-lr" style="margin-left: 30px;">
       <el-button type="primary">登陆</el-button>
-    </router-link>
-    <router-link :to="{ name: 'Register'}" class="Avator" style="margin-left: 30px; margin-right: 30px;">
-      <el-button  type="primary">注册</el-button>
     </router-link>
   </div>
   <div class="h-6" />
@@ -20,7 +17,9 @@
     active-text-color="#ffd04b"
     @select="handleSelect"
   >
-    <el-menu-item index="1">Game Center</el-menu-item>
+    <router-link :to="{ name: 'Main'}">
+      <el-menu-item index="1">Game Center</el-menu-item>
+    </router-link>
     <el-sub-menu index="2">
       <template #title>GAMES</template>
       <router-link :to="{ name: 'Csgo'}">
@@ -50,6 +49,10 @@ const handleSelect = (key: string, keyPath: string[]) => {
 <style scoped>
 .Avator{
   margin-left: auto;
+  padding-top: 25px;
+}
+.button-lr{
+  margin-left: auto;
 }
 .Title{
     color: rgb(127, 193, 255);  
@@ -63,7 +66,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
     height: 100px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center ;
 }
 .Bottom{
    padding: 2rem;

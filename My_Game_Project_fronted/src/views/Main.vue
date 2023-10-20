@@ -22,7 +22,7 @@
     </div>
 </template>
   
-<script lang="ts" setup>
+<script setup>
 import Header from '../components/Header.vue';
 import Lunbotu from '../components/Lunbotu.vue';
 </script>
@@ -42,7 +42,11 @@ import Lunbotu from '../components/Lunbotu.vue';
     border-radius: 5px;
 }
 .Bottom{
-    background-color: #bfc0c2;
+    padding: 2rem;
+    text-align: center;
+    background-color: whitesmoke;
+    color: gray;
+    font-size: small;
 }
 
 .Lunbotu{
